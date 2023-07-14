@@ -31,3 +31,11 @@ jobs:
       with:
         name: binaries
         path: bin/
+
+    - name: Commit and push binaries
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add bin/
+        git commit -m "Add build artifacts"
+        git push gh main

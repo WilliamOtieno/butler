@@ -12,6 +12,14 @@ build:
     - GOOS=windows GOARCH=amd64 go build -o bin/butler-windows-amd64.exe
     - GOOS=darwin GOARCH=amd64 go build -o bin/butler-darwin-amd64
 
+  after_script:
+    - |
+      git config --global user.email "ci@gitlab.com"
+      git config --global user.name "GitLab CI"
+      git add bin/
+      git commit -m "Add build artifacts"
+      git push gl main
+
   artifacts:
     paths:
       - bin/
