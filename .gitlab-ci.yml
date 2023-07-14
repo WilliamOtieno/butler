@@ -1,0 +1,17 @@
+stages:
+  - build
+
+build:
+  stage: build
+  image: golang:1.16
+
+  script:
+    - mkdir -p bin
+    - GOOS=linux GOARCH=amd64 go build -o bin/butler-linux-amd64
+    - GOOS=linux GOARCH=arm64 go build -o bin/butler-linux-arm64
+    - GOOS=windows GOARCH=amd64 go build -o bin/butler-windows-amd64.exe
+    - GOOS=darwin GOARCH=amd64 go build -o bin/butler-darwin-amd64
+
+  artifacts:
+    paths:
+      - bin/
