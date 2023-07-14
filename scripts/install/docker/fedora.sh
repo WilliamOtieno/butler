@@ -15,6 +15,7 @@ sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/dock
 sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo systemctl enable docker
 sudo systemctl start docker
+sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 docker run hello-world
