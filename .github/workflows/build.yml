@@ -38,4 +38,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add bin/
         git commit -m "Add build artifacts"
-        git push gh main
+        git push

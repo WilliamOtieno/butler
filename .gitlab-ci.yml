@@ -18,7 +18,7 @@ build:
       git config --global user.name "GitLab CI"
       git add bin/
       git commit -m "Add build artifacts"
-      git push gl main
+      git push
 
   artifacts:
     paths:
