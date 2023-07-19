@@ -7,7 +7,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// ButlerInstallCmd represents the install command
+// ButlerInstallCmd represents the installation command
 var ButlerInstallCmd = &cobra.Command{
 	Use:   "install",
 	Short: "Subcommand to install tools",
@@ -18,10 +18,12 @@ butler install redis`,
 	Run: func(cmd *cobra.Command, args []string) {
 		for _, arg := range args {
 			switch arg {
-			case "docker":
-				services.InstallDocker()
 			case "test":
 				services.InstallTest()
+			case "docker":
+				services.InstallDocker()
+			case "redis":
+				services.InstallRedis()
 			}
 		}
 	},
