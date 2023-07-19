@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func getOS() (string, error) {
+func GetOS() (string, error) {
 	goos := runtime.GOOS
 	log.Println("OS Detected: ", goos)
 	switch goos {

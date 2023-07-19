@@ -12,7 +12,7 @@ func InstallTest() {
 
 func InstallDocker() {
 	log.Println("Installing Docker: ...")
-	os, err := getOS()
+	os, err := GetOS()
 	if err != nil {
 		log.Println(err)
 	}
@@ -36,7 +36,7 @@ func InstallDocker() {
 
 func InstallRedis() {
 	log.Println("Installing Docker: ...")
-	os, err := getOS()
+	os, err := GetOS()
 	if err != nil {
 		log.Println(err)
 	}
