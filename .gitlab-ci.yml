@@ -14,11 +14,12 @@ build:
 
   after_script:
     - |
+      git remote add gl git@gitlab.com:williamotieno/butler.git
       git config --global user.email "ci@gitlab.com"
       git config --global user.name "GitLab CI"
       git add bin/
       git commit -m "Add build artifacts"
-      git push || true
+      git push gl main || true
 
   artifacts:
     paths:
