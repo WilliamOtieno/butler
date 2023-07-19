@@ -1,25 +1,25 @@
 package services
 
 import (
+	"github.com/williamotieno/butler/scripts/install/docker"
 	"log"
 )
 
 func InstallDocker() {
 	log.Println("Installing Docker: ...")
-	dockerScripts := parseScriptPath("/scripts/install/docker/")
 	os, err := getOS()
 	if err != nil {
 		log.Println(err)
 	}
 	switch os {
 	case "debian":
-		runScript(dockerScripts + "debian.sh")
+		runScript(docker.GetDebianCommands())
 	case "centos":
-		runScript(dockerScripts + "centos.sh")
+		runScript(docker.GetCentosCommands())
 	case "fedora":
-		runScript(dockerScripts + "fedora.sh")
+		runScript(docker.GetFedoraCommands())
 	case "ubuntu":
-		runScript(dockerScripts + "ubuntu.sh")
+		runScript(docker.GetUbuntuCommands())
 	case "darwin":
 		log.Println("Error: Docker installation in MacOS is through docker-desktop")
 	case "windows":
@@ -28,6 +28,5 @@ func InstallDocker() {
 }
 
 func InstallTest() {
-	dockerScripts := parseScriptPath("/scripts/install/docker/")
-	runScript(dockerScripts + "test.sh")
+	runScript(docker.GetTestCommands())
 }
