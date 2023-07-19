@@ -34,6 +34,13 @@ func parseScriptPath(path string) string {
 }
 
 func runScript(scriptPath string) {
+	tempDir := os.TempDir()
+	tempPath := filepath.Join(tempDir, scriptPath)
+	var script []byte
+	errr := os.WriteFile(tempPath, script, 0755)
+	if errr != nil {
+		log.Println(errr)
+	}
 	cmd := exec.Command("sh", scriptPath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
