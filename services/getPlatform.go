@@ -2,8 +2,8 @@ package services
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"runtime"
 	"strings"
 )
@@ -11,20 +11,22 @@ import (
 func getOS() (string, error) {
 	goos := runtime.GOOS
 	log.Println("OS Detected: ", goos)
-	if goos == "linux" {
-		log.Print("Attempting to get specific distro...")
+	switch goos {
+	case "linux":
+		log.Println("Attempting to get specific distro...")
 		distro, err := getLinuxDistro()
 		if err != nil {
 			log.Println(err)
 		}
 		log.Println("Distro Detected: ", distro)
 		return distro, nil
+	default:
+		return goos, nil
 	}
-	return goos, nil
 }
 
 func getLinuxDistro() (string, error) {
-	data, err := ioutil.ReadFile("/etc/os-release")
+	data, err := os.ReadFile("/etc/os-release")
 	if err != nil {
 		return "", err
 	}
@@ -35,5 +37,5 @@ func getLinuxDistro() (string, error) {
 		}
 	}
 
-	return "", fmt.Errorf("Distro ID not found in /etc/os-release")
+	return "", fmt.Errorf("distro ID not found in /etc/os-release")
 }
