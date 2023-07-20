@@ -4,6 +4,8 @@ stages:
 build:
   stage: build
   image: golang:1.16
+  only:
+    - main
 
   script:
     - mkdir -p bin
