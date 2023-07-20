@@ -4,11 +4,19 @@
 
 
 ## Features
- - Install common tools e.g docker
+ - Install common tools. Support currently for:-
+   - Docker
+   - Redis
+   - NVM (Node version manager)
+
 
 
 ## Usage:
     butler <command> e.g butler install docker
+    butler -h
+    butler help
+    butler install -h
+
 
 ## Installation
  - All binaries for specific operating systems are located in the [bin directory](/bin)

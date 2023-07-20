@@ -2,6 +2,7 @@ package services
 
 import (
 	"github.com/williamotieno/butler/scripts/install/docker"
+	"github.com/williamotieno/butler/scripts/install/nvm"
 	"github.com/williamotieno/butler/scripts/install/redis"
 	"log"
 )
@@ -53,4 +54,7 @@ func InstallRedis() {
 	default:
 		log.Println("Error: Not yet implemented on platform")
 	}
+
+func InstallNVM() {
+	runScript(nvm.GetNVMCommands())
 }

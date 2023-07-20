@@ -11,10 +11,11 @@ import (
 var ButlerInstallCmd = &cobra.Command{
 	Use:   "install",
 	Short: "Subcommand to install tools",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Long: `Specifically install a tool or a variety of tools. For example:
 
-butler install redis`,
+butler install redis
+butler install docker nvm redis
+`,
 	Run: func(cmd *cobra.Command, args []string) {
 		for _, arg := range args {
 			switch arg {
@@ -24,6 +25,8 @@ butler install redis`,
 				services.InstallDocker()
 			case "redis":
 				services.InstallRedis()
+			case "nvm":
+				services.InstallNVM()
 			}
 		}
 	},
