@@ -54,6 +54,7 @@ func InstallRedis() {
 	default:
 		log.Println("Error: Not yet implemented on platform")
 	}
+}
 
 func InstallNVM() {
 	runScript(nvm.GetNVMCommands())
