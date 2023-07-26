@@ -2,6 +2,7 @@ package services
 
 import (
 	"github.com/williamotieno/butler/scripts/install/docker"
+	"github.com/williamotieno/butler/scripts/install/homebrew"
 	"github.com/williamotieno/butler/scripts/install/nvm"
 	"github.com/williamotieno/butler/scripts/install/redis"
 	"log"
@@ -58,4 +59,8 @@ func InstallRedis() {
 
 func InstallNVM() {
 	runScript(nvm.GetNVMCommands())
+}
+
+func InstallHomebrew() {
+	runScript(homebrew.GetHomebrewCommands())
 }

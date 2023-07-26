@@ -27,6 +27,8 @@ butler install docker nvm redis
 				services.InstallRedis()
 			case "nvm":
 				services.InstallNVM()
+			case "homebrew":
+				services.InstallHomebrew()
 			}
 		}
 	},
