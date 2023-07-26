@@ -5,9 +5,10 @@
 
 ## Features
  - Install common tools. Support currently for:-
-   - Docker
-   - Redis
+   - Docker (Containerization tool)
+   - Redis (In-Mem Store)
    - NVM (Node version manager)
+   - Homebrew (MacOS/Linux Package Manager)
 
 
 
@@ -20,14 +21,15 @@
 
 ## Installation
  - All binaries for specific operating systems are located in the [bin directory](/bin)
- - Run one of the 2 commands below according to your system.
+ - Run one of the 2 series of commands below according to your system.
+ - These will simply install the binary to the `PATH` then make it executable.
 
     ```shell
-    sudo curl -o /usr/bin/butler https://github.com/WilliamOtieno/butler/raw/main/bin/<specific-binary>
-    sudo wget -O /usr/bin/butler https://github.com/WilliamOtieno/butler/raw/main/bin/<specific-binary>
+   sudo curl -o /usr/bin/butler https://github.com/WilliamOtieno/butler/raw/main/bin/<specific-binary>
+   sudo chmod a+rwx /usr/bin/butler
    ``` 
- - Then make it executable by running:-
    ```shell
+   sudo wget -O /usr/bin/butler https://github.com/WilliamOtieno/butler/raw/main/bin/<specific-binary>
    sudo chmod a+rwx /usr/bin/butler
    ```
 
